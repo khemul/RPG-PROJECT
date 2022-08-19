@@ -80,7 +80,7 @@ class Battle():
             else:
                 print('Battle is done!')
 
-                    i
+                    
 
 
             
