@@ -68,17 +68,19 @@ class Battle():
             MONSTER_HEALTH.append(m.health)
         
         #while HERO_HEALTH > 0:
-        if len(MONSTER_HEALTH) > 0:# если есть живые монстры, то продолжаем бой
+        while len(MONSTER_HEALTH) > 0 and HERO_HEALTH > 0:
+            
+            # если есть живые монстры, то продолжаем бой
             for i in range(len(MONSTER_HEALTH)):
                 if MONSTER_HEALTH[i] <= 0:# если хп монстра равно или меньше 0, то он выбывает из боя
                     MONSTER_HEALTH.pop(i)
                 else:
                     MONSTER_HEALTH[i] -= self.damage(hero)# наносим удар монстру(
                     HERO_HEALTH -= self.damage(monsters[i])
-                    print('Monster hp: {0}'.format(MONSTER_HEALTH[i]))
+                    print('Monster{0} hp: {1}'.format(i, MONSTER_HEALTH[i]))
                     print('Hero hp: {0}'.format(HERO_HEALTH))
-            else:
-                print('Battle is done!')
+                #else:
+                    #print('Battle is done!')
 
                     
 
@@ -114,12 +116,12 @@ class Battle():
 
 
 
-hero = Creature('Hero', 1000, 7, 0.2, 2, 1)
+hero = Creature('Hero', 30, 7, 0.2, 2, 1)
 monsters = []
 
-for m in range(30):
+for m in range(2):
     rand_power = random.randint(5, 8)
-    monsters.append(Creature('Monster', 200, rand_power, 0.1, 4, 2))
+    monsters.append(Creature('Monster', 20, rand_power, 0.1, 4, 2))
     #print(monsters[m])
 
 
